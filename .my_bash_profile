@@ -1,0 +1,13 @@
+# Set terminal title
+export PROMPT_COMMAND='echo -ne "\033]0;$TITLE :: `pwd`\007"'
+
+# Bash completion
+  [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+# Recommended system settings
+# History settings
+HISTSIZE=5000
+HISTFILESIZE=10000
+shopt -s histappend # Append to history file when shell closes instead of replacing it
+stty -ixon          # Enable ctrl-s to do "forward search", as opposed to ctrl-r
+

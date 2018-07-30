@@ -1,0 +1,9 @@
+# Command aliases
+alias ll="ls -l"
+alias grep="grep --color"
+
+# Utilities
+alias lslast='/bin/ls -tr | tail -n 1'
+alias openlast='open "`/bin/ls -tr | tail -n 1`"'
+alias copylast='`/bin/ls -tr | tail -n 1 | perl -pe 'chomp' | pbcopy`'
+
