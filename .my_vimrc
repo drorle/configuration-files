@@ -126,3 +126,7 @@ if tp == 'iTerm.app'
   :imap <ESC>f <C-o>el
   :cmap <ESC>f el
 endif
+
+" Turn on Syntax highlighting
+syntax on
+colo delek
