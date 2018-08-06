@@ -6,4 +6,4 @@ alias grep="grep --color"
 alias lslast='/bin/ls -tr | tail -n 1'
 alias openlast='open "`/bin/ls -tr | tail -n 1`"'
 alias copylast='`/bin/ls -tr | tail -n 1 | perl -pe 'chomp' | pbcopy`'
-
+alias timestamp='date "+%Y%m%d_%H%M%S"'
