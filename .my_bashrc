@@ -1,2 +1,4 @@
-HISTSIZE=5000
-HISTFILESIZE=10000
+# Not sure if this file has any effect at all
+#HISTSIZE=5000
+#HISTFILESIZE=10000
+
