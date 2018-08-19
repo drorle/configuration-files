@@ -1,5 +1,5 @@
 # Set terminal title
-export PROMPT_COMMAND='echo -ne "\033]0;$TITLE :: `pwd`\007"'
+#export PROMPT_COMMAND='echo -ne "\033]0;$TITLE :: `pwd`\007"'
 
 # Bash completion
   [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
