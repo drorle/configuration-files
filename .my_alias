@@ -8,11 +8,12 @@ alias lslast='/bin/ls -tr | tail -n 1'
 alias openlast='open "`/bin/ls -tr | tail -n 1`"'
 alias copylast='`/bin/ls -tr | tail -n 1 | perl -pe 'chomp' | pbcopy`'
 alias mvlast='mv "`/bin/ls -tr | tail -n 1`"'
+alias mvlast2prevdir='cd - > /dev/null ; dir=`pwd` ; cd - > /dev/null; mv "`/bin/ls -tr | tail -n 1`" $dir'
 alias timestamp='date "+%Y%m%d_%H%M%S"'
 
 
 # Functions used for acting upon arguments since alias cannot do that
-backup() { mkdir -p Old ; /bin/cp $1 Old/$1.`timestamp`; }
+backup() { mkdir -p Old ; /bin/cp "$1" Old/"$1".`timestamp`; }
 
 # Git aliases
 alias git-graph="git log --all --decorate --oneline --graph"
