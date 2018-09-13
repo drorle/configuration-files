@@ -1,6 +1,7 @@
 # Command aliases
 alias ls="ls -G"
 alias ll="ls -l"
+alias lltr="ll -tr"
 alias grep="grep --color"
 
 # Utilities
@@ -8,8 +9,9 @@ alias lslast='/bin/ls -tr | tail -n 1'
 alias openlast='open "`/bin/ls -tr | tail -n 1`"'
 alias copylast='`/bin/ls -tr | tail -n 1 | perl -pe 'chomp' | pbcopy`'
 alias mvlast='mv "`/bin/ls -tr | tail -n 1`"'
-alias mvlast2prevdir='cd - > /dev/null ; dir=`pwd` ; cd - > /dev/null; mv "`/bin/ls -tr | tail -n 1`" $dir'
+alias mvlast2prevdir='cd - > /dev/null ; dir=`pwd` ; cd - > /dev/null; mv "`/bin/ls -tr | tail -n 1`" "$dir"'
 alias timestamp='date "+%Y%m%d_%H%M%S"'
+alias markdown-editor='open https://dillinger.io/'
 
 
 # Functions used for acting upon arguments since alias cannot do that
@@ -21,9 +23,11 @@ alias git-graph="git log --all --decorate --oneline --graph"
 # My Locations
 alias gdrive='open https://drive.google.com/drive/folders/0B-8FfA4FAbjoOHRnYV9UZFAtWGM'
 alias mygithub='open https://github.com/drorle'
+alias mashov='open https://web.mashov.info/students/'
 
 # Temporary stuff
 alias cdbudapest='cd "/Users/c5271711/Private/OneDrive/Data/Private/Documents/Abroad/Budapest_2018"'
 alias london='open https://drive.google.com/drive/folders/1rp2ofrcGHVsaw0mJ1x3CM2J16ZP1z8GS'
 alias budapestmap='open "https://www.google.com/maps/d/u/0/edit?hl=iw&hl=iw&mid=1biZIz6-7pyyH8QF3W3kAbRbT7Bkfmslh&ll=47.494182970748426%2C19.05255699999998&z=18"'
 alias budapestdoc='open /Users/c5271711/Private/OneDrive/Data/Private/Documents/Abroad/Budapest_2018/Budapest.docx'
+alias opsschool='open https://github.com/ops-school/candidates-assignment'
