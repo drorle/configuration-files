@@ -12,7 +12,10 @@ alias mvlast='mv "`/bin/ls -tr | tail -n 1`"'
 alias mvlast2prevdir='cd - > /dev/null ; dir=`pwd` ; cd - > /dev/null; mv "`/bin/ls -tr | tail -n 1`" "$dir"'
 alias timestamp='date "+%Y%m%d_%H%M%S"'
 alias markdown-editor='open https://dillinger.io/'
+alias unformat='pbpaste | pbcopy'
 
+# My Web Sites
+alias xupr='open https://www.ourgroceries.com/your-lists/list/TlBopvL46EWldJ6hbginfy' ; alias סופר=xupr
 
 # Functions used for acting upon arguments since alias cannot do that
 backup() { mkdir -p Old ; /bin/cp "$1" Old/"$1".`timestamp`; }
@@ -24,10 +27,20 @@ alias git-graph="git log --all --decorate --oneline --graph"
 alias gdrive='open https://drive.google.com/drive/folders/0B-8FfA4FAbjoOHRnYV9UZFAtWGM'
 alias mygithub='open https://github.com/drorle'
 alias mashov='open https://web.mashov.info/students/'
+alias wifi='open "$MY_DATA/Private/Documents/Computers/Configurations/MAC Addresses.txt"'
+alias mac-addresses='open "$MY_DATA/Private/Documents/Computers/Configurations/MAC Addresses.txt"'
+alias neeman='open "https://forms.gov.il/globalData/GetSequence/Gethtmlform.aspx?formtype=neemaNikayon%40sviva.gov.il"'
+alias sviva='open "https://forms.gov.il/globalData/GetSequence/Gethtmlform.aspx?formtype=neemaNikayon%40sviva.gov.il"'
 
 # Temporary stuff
+alias londonmap='open "https://www.google.com/maps/d/u/0/edit?hl=iw&mid=1GsLYU9mbnWCI38RHU21mhE8g_OE"'
 alias cdbudapest='cd "/Users/c5271711/Private/OneDrive/Data/Private/Documents/Abroad/Budapest_2018"'
 alias london='open https://drive.google.com/drive/folders/1rp2ofrcGHVsaw0mJ1x3CM2J16ZP1z8GS'
 alias budapestmap='open "https://www.google.com/maps/d/u/0/edit?hl=iw&hl=iw&mid=1biZIz6-7pyyH8QF3W3kAbRbT7Bkfmslh&ll=47.494182970748426%2C19.05255699999998&z=18"'
 alias budapestdoc='open /Users/c5271711/Private/OneDrive/Data/Private/Documents/Abroad/Budapest_2018/Budapest.docx'
 alias opsschool='open https://github.com/ops-school/candidates-assignment'
+alias cdlondon='cd "/Users/c5271711/private/OneDrive/Data/Private/Documents/Abroad/London 2018"'
+
+# Mess with the prompt
+alias prompt='export PS1="\h:\W \u\$"'
+alias noprompt='export PS1=""'
