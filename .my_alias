@@ -5,17 +5,61 @@ alias lltr="ll -tr"
 alias grep="grep --color"
 
 # Utilities
-alias lslast='/bin/ls -tr | tail -n 1'
+alias find-file-in-data='find $SAP_DATA $MY_DATA | grep -i' ; alias find-data=find-file-in-data
+alias find-file-here='find . | grep -i' ; alias find-here=find-file-here
+alias tolower='tr "[A-Z]" "[a-z]"'
+alias nospace='tr " " "_"'
+alias lslast='/bin/ls -tr | tail -n 1 | perl -pe chomp | pbcopy ; pbpaste'
 alias openlast='open "`/bin/ls -tr | tail -n 1`"'
 alias copylast='`/bin/ls -tr | tail -n 1 | perl -pe 'chomp' | pbcopy`'
 alias mvlast='mv "`/bin/ls -tr | tail -n 1`"'
 alias mvlast2prevdir='cd - > /dev/null ; dir=`pwd` ; cd - > /dev/null; mv "`/bin/ls -tr | tail -n 1`" "$dir"'
 alias timestamp='date "+%Y%m%d_%H%M%S"'
 alias markdown-editor='open https://dillinger.io/'
+alias markdown-editor2='open https://stackedit.io/app#'
+alias markdown-editor3='open /Applications/Zettlr.app'
 alias unformat='pbpaste | pbcopy'
+alias reload='source ~/.bash_profile'
+openmd() { markdown $1 > /tmp/$1.html ; open /tmp/$1.html ; } # Generate and show markdown pages
+settitle() { echo -ne "\033]0;"$*"\007" ; } # Set the title for the iTerm2 terminal/pane
+
+# Translate
+alias translate-german-to-english='open https://translate.google.co.il/?hl=en#de/en/'
+
+# AWS
+alias aws-login='open "https://148496676421.signin.aws.amazon.com/console"'
+alias aws-dashboard='open "https://us-west-2.console.aws.amazon.com/console/home?region=us-west-2#"'
+alias aws-vpc-west-2='open "https://us-west-2.console.aws.amazon.com/vpc/home?region=us-west-2#"'
+alias aws-vpc-east-2='open "https://us-east-2.console.aws.amazon.com/vpc/home?region=us-east-2#"' ; alias aws-vpc=aws-vpc-east-2
+alias aws-cloudformation='open "https://us-west-2.console.aws.amazon.com/cloudformation/home?#"'
+alias aws-iam='open "https://console.aws.amazon.com/iam/"'
+alias aws-billing='open "https://console.aws.amazon.com/billing/home?region=us-west-2#/"'
+alias aws-ec2='open "https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Instances:"'
+#alias aws-ssh='ssh -i "/Users/c5271711/private/OneDrive/Data/Private/Training/DevOps/Courses/OpsSchool/AWS/dror-key-pair.pem"' ; alias ssh-aws=aws-ssh
+alias aws-ssh='ssh -i "/Users/c5271711/.aws/dror-key-pair.pem"' ; alias ssh-aws=aws-ssh
+alias ssh-aws1='ssh-aws ubuntu@aws1'
+alias open-prometheus-dashboard='open http://ec2-34-214-205-215.us-west-2.compute.amazonaws.com:9090'
+alias aws-instances-west-2='open "https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Instances:sort=securityGroupNames"'
+
+alias aws-instances-east-2='open "https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Instances:sort=securityGroupNames"' ; alias aws-instances=aws-instances-east-2
+alias aws-login='open "https://148496676421.signin.aws.amazon.com/console"'
+alias aws-security-groups='open "https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#SecurityGroups:sort=groupId"'
 
 # My Web Sites
 alias xupr='open https://www.ourgroceries.com/your-lists/list/TlBopvL46EWldJ6hbginfy' ; alias סופר=xupr
+alias matrix-portal='open https://portal.matrix.co.il/'
+alias myOneDrive='open https://onedrive.live.com/?id=8807E5473731F730%21109&cid=8807E5473731F730'; alias myonedrive=myOneDrive
+alias getfax='open "http://www.myfax.co.il/action/admin.do"' ; alias faxget=getfax ; alias fax_get=getfax
+alias weather='open "http://www.ims.gov.il/ims/all_tahazit/"'
+alias ofek='open "http://ebag.cet.ac.il/"' ; alias tupe=ofek ; alias אופק=ofek
+
+# OpsSchool
+alias appleseeds='open https://dc.appleseeds.org.il/app/' ; alias opsschool-appleseeds=appleseeds
+alias cdOpsSchool='cd /Users/c5271711/private/OneDrive/Data/Private/Training/DevOps/Courses/OpsSchool ; settitle OpsSchool' ; alias cdopsschool=cdOpsSchool
+alias OpsSchoolSlack='open https://opsschool.slack.com/messages/CD9EPPES1/' ; alias opsschoolslack=OpsSchoolSlack ; alias opsschool-slack=OpsSchoolSlack
+alias moodle='open http://moodle.tapuah.org.il/course/view.php?id=226' ; alias opsschoolMoodle=moodle ; alias opsschool-moodle=moodle
+#alias opsschool-home-assignment='open "/Users/c5271711/private/OneDrive/Data/Private/Training/DevOps/Courses/OpsSchool/Home-Assignments/opsschool3-coding"'
+alias opsschoolgithub='open https://github.com/ops-school/opsschool3-coding' ; alias github-opsschool=opsschoolgithub ; alias opsschool-github=opsschoolgithub
 
 # Functions used for acting upon arguments since alias cannot do that
 backup() { mkdir -p Old ; /bin/cp "$1" Old/"$1".`timestamp`; }
@@ -24,23 +68,57 @@ backup() { mkdir -p Old ; /bin/cp "$1" Old/"$1".`timestamp`; }
 alias git-graph="git log --all --decorate --oneline --graph"
 
 # My Locations
-alias gdrive='open https://drive.google.com/drive/folders/0B-8FfA4FAbjoOHRnYV9UZFAtWGM'
+#alias cdclash='cd "$MY_DATA/Private/Documents/Misc/Clash-Royale"'
+alias cdterraform='cd "$MY_DATA/Private/Training/DevOps/Topics/Terraform"' ; alias cdTerraform=cdterraform
+alias gdrive='open https://drive.google.com/drive/folders/0B-8FfA4FAbjoOHRnYV9UZFAtWGM' ; alias open-gdrive=gdrive
 alias mygithub='open https://github.com/drorle'
 alias mashov='open https://web.mashov.info/students/'
 alias wifi='open "$MY_DATA/Private/Documents/Computers/Configurations/MAC Addresses.txt"'
 alias mac-addresses='open "$MY_DATA/Private/Documents/Computers/Configurations/MAC Addresses.txt"'
 alias neeman='open "https://forms.gov.il/globalData/GetSequence/Gethtmlform.aspx?formtype=neemaNikayon%40sviva.gov.il"'
 alias sviva='open "https://forms.gov.il/globalData/GetSequence/Gethtmlform.aspx?formtype=neemaNikayon%40sviva.gov.il"'
+alias focus='open "https://onedrive.live.com/edit.aspx?cid=8807e5473731f730&page=view&resid=8807E5473731F730!60882&parId=8807E5473731F730!110&app=Word"' ; alias agenda=focus
+alias status='open "https://onedrive.live.com/edit.aspx?cid=8807e5473731f730&page=view&resid=8807E5473731F730!60884&parId=8807E5473731F730!110&app=Word"'
+alias cdgdrive='cd /Users/c5271711/Private/gDrive'
+alias awsdoc='open "$MY_DATA/Private/Training/DevOps/HowTo Documents/AWS.docx"'
+alias cddevops='cd "$MY_DATA/Private/Training/DevOps"'; alias cdDevOps=cddevops
+alias ansibledoc='open "$MY_DATA/Private/Training/DevOps/Topics/Ansible/Docs/Ansible.docx"'
+alias cdansible='cd "$MY_DATA/Private/Training/DevOps/Topics/Ansible"'
+alias jenkinsdoc='open "$MY_DATA/Private/Training/DevOps/Topics/Jenkins/Docs/Jenkins.docx"'
+alias cdjenkins='cd "$MY_DATA/Private/Training/DevOps/Topics/Jenkins"'
 
 # Temporary stuff
+alias microsoft-ignore='open "https://www.microsoft.com/he-il/ignite-the-tour/tel-aviv#agenda"'
+alias berlinmap='open "https://www.google.com/maps/d/u/0/edit?hl=iw&mid=1_L5yfpqTwplN4hNxFYuxvn43Aio&ll=52.46329781938155%2C13.413608599999975&z=12"'
 alias londonmap='open "https://www.google.com/maps/d/u/0/edit?hl=iw&mid=1GsLYU9mbnWCI38RHU21mhE8g_OE"'
-alias cdbudapest='cd "/Users/c5271711/Private/OneDrive/Data/Private/Documents/Abroad/Budapest_2018"'
+alias londondoc='open "https://docs.google.com/document/d/1Sqk5sU-k1BfEskOEmRXrGi2gJDGxsoiWFf29GZbD9qU/edit"'
+#alias cdbudapest='cd "/Users/c5271711/Private/OneDrive/Data/Private/Documents/Abroad/Budapest_2018"'
+alias cdbudapest='cd "/Users/c5271711/Private/gDrive/Share - Levin/Vacations/2019-Budapest"'
+alias cdtelaviv='cd "/Users/c5271711/Private/gDrive/Share - Levin/Vacations/2019-Tel-Aviv"'
+alias telavivdoc='open "/Users/c5271711/Private/gDrive/Share - Levin/Vacations/2019-Tel-Aviv/tel-aviv.docx"'
+alias telavivmap='open "https://www.google.com/maps/d/u/0/edit?hl=iw&mid=1IuMoevNxFiQWeFKijZIWRTULjzo"'
 alias london='open https://drive.google.com/drive/folders/1rp2ofrcGHVsaw0mJ1x3CM2J16ZP1z8GS'
 alias budapestmap='open "https://www.google.com/maps/d/u/0/edit?hl=iw&hl=iw&mid=1biZIz6-7pyyH8QF3W3kAbRbT7Bkfmslh&ll=47.494182970748426%2C19.05255699999998&z=18"'
 alias budapestdoc='open /Users/c5271711/Private/OneDrive/Data/Private/Documents/Abroad/Budapest_2018/Budapest.docx'
 alias opsschool='open https://github.com/ops-school/candidates-assignment'
-alias cdlondon='cd "/Users/c5271711/private/OneDrive/Data/Private/Documents/Abroad/London 2018"'
+alias opsschool='open http://www.opsschool.org.il/'
+alias cdlondon='cd "$GDRIVE/Share - Levin/Vacations/2018 London"'
+alias cdberlin='cd "$GDRIVE//Share - Levin/Vacations/2019-Berlin"'
 
 # Mess with the prompt
 alias prompt='export PS1="\h:\W \u\$"'
 alias noprompt='export PS1=""'
+
+# Misc
+alias vered-vpn='open "https://secure.purpledrm.com/pulse"'
+alias vered-ssh='ssh root@172.31.160.7'
+alias open-github-remotes='git remote -v | grep fetch  | awk '\''{print $2}'\'' | sed "s/git@//" | sed "s/.git//" | sed "s/:/\//" | sed "s/github/http:\/\/github/" | xargs open' ; alias github-open-remotes=open-github-remotes
+alias walldorf-map='open "https://drive.google.com/open?id=1vwHDjjrd0rv8iT4cpG1UpTBymIDcDqRV&usp=sharing"'
+alias housexls='open $MY_DATA/Private/Documents/Household/House/House.xlsx'
+alias cv='open "$MY_DATA/Private/Documents/Work/Job Search/Dror/2019-04-Dror-Job-Search/2019-04_Resume-Dror-Levin-Training.docx"'
+alias cdjs='cd "$MY_DATA/Private/Documents/Work/Job Search/Dror/2019-04-Dror-Job-Search"'
+alias netadoc='open "$MY_DATA/Private/Documents/Health/Neta/2019 סיכום טיפול.docx"'
+alias berlindoc='open "$GDRIVE/Share - Levin/Vacations/2019-Berlin/berlin.docx"'
+alias week-number='date +%V'
+alias tourism='open "$MY_DATA/Private/Documents/Tourism/Tourism Index.xlsx"'
+

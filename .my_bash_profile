@@ -13,3 +13,9 @@ stty -ixon          # Enable ctrl-s to do "forward search", as opposed to ctrl-r
 
 # ls colours
 export LSCOLORS=ExFxBxDxCxegedabagacad
+
+# AWS stuff
+#export AWS_REGION=us-west-2
+
+# Locations
+#export GDRIVE="/Users/c5271711/Private/gDrive"
