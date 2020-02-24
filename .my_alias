@@ -176,4 +176,4 @@ alias hilan='open "https://fundtech.net.hilan.co.il/"'
 alias cdmydata='cd $MY_DATA'
 alias cdnoa-poland='cd $MY_DATA/Private/Documents/Abroad/Vacations/2020-Poland'
 alias chrome='open -a "Google Chrome"'
-
+alias chromehome='open -na "Google Chrome" --args --new-window "mail.google.com" "calendar.google.com" "contacts.google.com" "wunderlist.com" "web.whatsapp.com" "youtube.com" "outlook.office365.com/mail/inbox" "outlook.office365.com/calendar"'
