@@ -8,7 +8,7 @@
 # History settings
 HISTSIZE=5000
 HISTFILESIZE=10000
-shopt -s histappend # Append to history file when shell closes instead of replacing it
+#shopt -s histappend # Append to history file when shell closes instead of replacing it
 stty -ixon          # Enable ctrl-s to do "forward search", as opposed to ctrl-r
 
 # ls colours
@@ -19,3 +19,7 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 
 # Locations
 #export GDRIVE="/Users/c5271711/Private/gDrive"
+export MY_DATA='/Users/drorlevin/Private/Data'
+
+# Configure PATH
+export PATH="$PATH:~/bin"
