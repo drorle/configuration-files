@@ -5,7 +5,7 @@ alias lltr="ll -tr"
 alias grep="grep --color"
 
 # Utilities
-alias find-file-in-data='find $SAP_DATA $MY_DATA | grep -i' ; alias find-data=find-file-in-data
+alias find-file-in-data='find $WORK_DATA $MY_DATA | grep -i' ; alias find-data=find-file-in-data
 alias find-file-here='find . | grep -i' ; alias find-here=find-file-here
 alias tolower='tr "[A-Z]" "[a-z]"'
 alias nospace='tr " " "-"'
@@ -177,3 +177,9 @@ alias cdmydata='cd $MY_DATA'
 alias cdnoa-poland='cd $MY_DATA/Private/Documents/Abroad/Vacations/2020-Poland'
 alias chrome='open -a "Google Chrome"'
 alias chromehome='open -na "Google Chrome" --args --new-window "mail.google.com" "calendar.google.com" "contacts.google.com" "wunderlist.com" "web.whatsapp.com" "youtube.com" "outlook.office365.com/mail/inbox" "outlook.office365.com/calendar"'
+alias vscode='open -a "Visual Studio Code"'
+alias cdyoutube-music='cd $MY_DATA/Entertainment/Music/YouTube-Links'
+alias prague-map='open "https://www.google.com/maps/d/edit?hl=en&hl=en&mid=1Y092p9a93Odug7YJVVwmThldujVvhypa&ll=50.07378100022851%2C14.418728228566692&z=15"'
+alias cdWdata='cd "$WORK_DATA"'
+alias az-portal='open "https://portal.azure.com/"'
+alias az-shell='open "https://shell.azure.com/"'
