@@ -141,6 +141,7 @@ alias chef-doc='open "$MY_DATA/Private/Training/DevOps/HowTo-Documents/Chef.docx
 alias mac-doc='open "$MY_DATA/Private/Documents/Computers/HOWTO/MAC HowTo.docx"' ; alias macdoc=mac-doc
 alias owa-keyboard-shortcuts='open "$MY_DATA/Private/Documents/Computers/HOWTO/owa-keyboard-shortcuts.png"'
 alias linux-doc='open "$MY_DATA/Private/Training/DevOps/HowTo-Documents/Linux.docx"' ; alias linuxdoc=linux-doc
+alias vagrant-doc='open "$MY_DATA/Private/Training/DevOps/HowTo-Documents/Vagrant.docx"'
 alias spectacle='open /Applications/Spectacle.app'
 alias power-words='open $MY_DATA/Private/Documents/Work/Misc/power-words.docx' ; alias useful-power-words=power-words
 alias sofia-map='open "https://www.google.com/maps/d/u/0/edit?hl=en&mid=1U_ILJD1qNFZQWRd12xOtlaI9R7t1PmSv&ll=42.415179841976446%2C23.36519475&z=10"'  ; alias sofiamap=sofia-map
@@ -160,7 +161,7 @@ alias nokia='open "https://onedrive.live.com/edit.aspx?cid=8807e5473731f730&page
 alias cdpdocs='cd $MY_DATA/Private/Documents/'
 alias cdworkspace='cd $MY_DATA/Workspace'
 alias cdhowto='cd $MY_DATA/Private/Training/DevOps/HowTo-Documents'
-alias finastra-doc='open $MY_DATA/Private/Training/DevOps/HowTo-Documents/Finastra.docx'
+alias finastra-doc='open $MY_DATA/Private/Training/DevOps/HowTo-Documents/Finastra.docx' ; alias fin-doc=finastra-doc
 alias azure-doc='open $MY_DATA/Private/Training/DevOps/HowTo-Documents/Azure.docx' ; alias az-doc=azure-doc
 alias recipes='open $MY_DATA/Private/Documents/Recipes'
 alias cdrecipes='cd $MY_DATA/Private/Documents/Recipes'
@@ -172,7 +173,7 @@ alias cdnoa-essen="cd $MY_DATA/Private/Documents/Abroad/Vacations/2020-03-Essen-
 alias cdfrance="cd $MY_DATA/Private/Documents/Abroad/Vacations/2020-France"
 alias safari='open -a Safari'
 alias maps='open "http://maps.google.com/"'
-alias hilan='open "https://fundtech.net.hilan.co.il/"'
+alias hilan='open "https://fundtech.net.hilan.co.il/"' ; alias hours=hilan
 alias cdmydata='cd $MY_DATA'
 alias cdnoa-poland='cd $MY_DATA/Private/Documents/Abroad/Vacations/2020-Poland'
 alias chrome='open -a "Google Chrome"'
@@ -183,3 +184,13 @@ alias prague-map='open "https://www.google.com/maps/d/edit?hl=en&hl=en&mid=1Y092
 alias cdWdata='cd "$WORK_DATA"'
 alias az-portal='open "https://portal.azure.com/"'
 alias az-shell='open "https://shell.azure.com/"'
+alias rdp='open -a "Microsoft Remote Desktop"'
+alias notepad='open -a Notes'
+alias virtualbox='open -a VirtualBox' ; alias vm=virtualbox
+alias cdvagrant='cd $MY_DATA/Utilities/Tools/Vagrant/Vagrant.git'
+alias cddata='cd /Users/drorlevin/Private/Data'
+alias notes='vi $WORK_DATA/Workspace/notes.txt'
+alias course='open "https://www.udemy.com/course/70533-azure/learn/lecture/15203220"' ; alias open-course=course
+alias cddesktop="cd ~/Desktop"
+alias teams='open -a "Microsoft Teams"'
+alias cdconfig-files-repo='cd $MY_DATA/Utilities/configuration-files.git'
