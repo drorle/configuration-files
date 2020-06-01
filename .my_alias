@@ -9,13 +9,13 @@ alias find-file-in-data='find $WORK_DATA $MY_DATA | grep -i' ; alias find-data=f
 alias find-file-here='find . | grep -i' ; alias find-here=find-file-here
 alias tolower='tr "[A-Z]" "[a-z]"'
 alias nospace='tr " " "-"'
-alias lslast='/bin/ls -tr | tail -n 1 | perl -pe chomp | pbcopy ; pbpaste ; printf "\n"'
-alias lslast-scanned='/bin/ls -tr IMG*.jpg | tail -n 1 | perl -pe chomp | pbcopy ; pbpaste'
-alias openlast='open "`/bin/ls -tr | tail -n 1`"'
-alias openlast-scanned='open "`/bin/ls -tr IMG*.jpg | tail -n 1`"'
+alias ls-last='/bin/ls -tr | tail -n 1 | perl -pe chomp | pbcopy ; pbpaste ; printf "\n"' ; alias lslast=ls-last
+alias ls-last-scanned='/bin/ls -tr IMG*.jpg | tail -n 1 | perl -pe chomp | pbcopy ; pbpaste'
+alias open-last='open "`/bin/ls -tr | tail -n 1`"' ; alias openlast=open-last
+alias open-last-scanned='open "`/bin/ls -tr IMG*.jpg | tail -n 1`"'
 alias copylast='`/bin/ls -tr | tail -n 1 | perl -pe 'chomp' | pbcopy`'
-alias mvlast='mv "`/bin/ls -tr | tail -n 1`"'
-alias mvlast-scanned='mv "`/bin/ls -tr IMG*.jpg | tail -n 1`"'
+alias mv-last='mv "`/bin/ls -tr | tail -n 1`"' ; alias mvlast=mv-last
+alias mv-last-scanned='mv "`/bin/ls -tr IMG*.jpg | tail -n 1`"'
 alias mvlast2prevdir='cd - > /dev/null ; dir=`pwd` ; cd - > /dev/null; mv "`/bin/ls -tr | tail -n 1`" "$dir"'
 alias timestamp='date "+%Y%m%d_%H%M%S"'
 alias markdown-editor='open https://dillinger.io/'
@@ -25,6 +25,7 @@ alias unformat='pbpaste | pbcopy'
 alias reload='source ~/.bash_profile'
 openmd() { markdown $1 > /tmp/$1.html ; open /tmp/$1.html ; } # Generate and show markdown pages
 settitle() { export TITLE=$* ; echo -ne "\033]0;"$TITLE"\007" ; } # Set the title for the iTerm2 terminal/pane. Exporting TITLE allows for later checking if this is defined.
+alias copy-last-cmd='fc -ln -1 | awk '\''{$1=$1}1'\'' ORS='\'''\'' | pbcopy'
 
 # Translate
 alias translate-german-to-english='open https://translate.google.co.il/?hl=en#de/en/'
@@ -83,7 +84,7 @@ alias neeman='open "https://forms.gov.il/globalData/GetSequence/Gethtmlform.aspx
 alias sviva='open "https://forms.gov.il/globalData/GetSequence/Gethtmlform.aspx?formtype=neemaNikayon%40sviva.gov.il"'
 alias focus='open "https://onedrive.live.com/edit.aspx?cid=8807e5473731f730&page=view&resid=8807E5473731F730!60882&parId=8807E5473731F730!110&app=Word"' ; alias agenda=focus
 alias status='open "https://onedrive.live.com/edit.aspx?cid=8807e5473731f730&page=view&resid=8807E5473731F730!60884&parId=8807E5473731F730!110&app=Word"'
-alias cdgdrive='cd /Users/c5271711/Private/gDrive'
+alias cdgdrive='cd ~/Google\ Drive/'
 alias awsdoc='open "$MY_DATA/Private/Training/DevOps/HowTo-Documents/AWS.docx"'
 alias cddevops='cd "$MY_DATA/Private/Training/DevOps"'; alias cdDevOps=cddevops ; alias cdmytraining=cddevops ; alias cdlearning=cddevops
 alias ansibledoc='open "$MY_DATA/Private/Training/DevOps/Topics/Ansible/Docs/Ansible.docx"'
@@ -113,8 +114,9 @@ alias cdlondon='cd "$GDRIVE/Share - Levin/Vacations/2018 London"'
 alias cdberlin='cd "$GDRIVE//Share - Levin/Vacations/2019-Berlin"'
 
 # Mess with the prompt
-alias prompt='export PS1="\h:\W \u\$"'
-alias noprompt='export PS1=""'
+#alias prompt='export PS1="\h:\W \u\$"'
+alias prompt='export PS1="\\[$(tput setaf 2)\\]\w\[$(tput sgr0)\\] $ "'
+alias noprompt='export PS1="$ "'
 
 # Misc
 alias vered-vpn='open "https://secure.purpledrm.com/pulse"'
@@ -137,6 +139,7 @@ alias cdstartup='cd $MY_DATA/Utilities/Startup'
 alias settitle-pwd='TITLE=`basename $PWD` ; settitle $TITLE'
 alias settitle-project='TITLE=$OS_PROJECT_NAME ; settitle $TITLE'
 alias git-doc='open "$MY_DATA/Private/Training/DevOps/HowTo-Documents/git.docx"' ; alias gitdoc=git-doc
+alias windows-doc='open "$MY_DATA/Private/Training/DevOps/HowTo-Documents/Windows.docx"' ; alias win-doc=windows-doc
 alias chef-doc='open "$MY_DATA/Private/Training/DevOps/HowTo-Documents/Chef.docx"'
 alias mac-doc='open "$MY_DATA/Private/Documents/Computers/HOWTO/MAC HowTo.docx"' ; alias macdoc=mac-doc
 alias owa-keyboard-shortcuts='open "$MY_DATA/Private/Documents/Computers/HOWTO/owa-keyboard-shortcuts.png"'
@@ -146,7 +149,7 @@ alias spectacle='open /Applications/Spectacle.app'
 alias power-words='open $MY_DATA/Private/Documents/Work/Misc/power-words.docx' ; alias useful-power-words=power-words
 alias sofia-map='open "https://www.google.com/maps/d/u/0/edit?hl=en&mid=1U_ILJD1qNFZQWRd12xOtlaI9R7t1PmSv&ll=42.415179841976446%2C23.36519475&z=10"'  ; alias sofiamap=sofia-map
 alias cdmymusic='cd $MY_DATA/Entertainment/Music' ; alias cdmusic=cdmymusic
-alias open-vered-chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir="/Users/c5271711/vered-chrome/"' ; alias open-chrome-vered=open-vered-chrome
+#alias open-vered-chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir="/Users/c5271711/vered-chrome/"' ; alias open-chrome-vered=open-vered-chrome
 alias open-to-do-every-day='open "https://www.wunderlist.com/webapp#/tasks/5348182212/title/focus"' ; alias todo-today=open-to-do-every-day ; alias to-do-today=open-to-do-every-day
 alias plan-today='open-to-do-every-day ; open-calendars-side-by-side' ; alias open-today-todo+calendars=plan-today
 alias maccabi-tivi='open "https://tivi.maccabi4u.co.il/"'
@@ -161,13 +164,13 @@ alias nokia='open "https://onedrive.live.com/edit.aspx?cid=8807e5473731f730&page
 alias cdpdocs='cd $MY_DATA/Private/Documents/'
 alias cdworkspace='cd $MY_DATA/Workspace'
 alias cdhowto='cd $MY_DATA/Private/Training/DevOps/HowTo-Documents'
-alias finastra-doc='open $MY_DATA/Private/Training/DevOps/HowTo-Documents/Finastra.docx' ; alias fin-doc=finastra-doc
 alias azure-doc='open $MY_DATA/Private/Training/DevOps/HowTo-Documents/Azure.docx' ; alias az-doc=azure-doc
-alias recipes='open $MY_DATA/Private/Documents/Recipes'
-alias cdrecipes='cd $MY_DATA/Private/Documents/Recipes'
+alias recipes='open $MY_DATA/Private/Documents/Food/Recipes'
+alias cdrecipes='cd $MY_DATA/Private/Documents/Food/Recipes'
 alias nfch='open "https://online.maccabi4u.co.il/"' ; alias מכבי=nfch
 alias az-cloud-shell='open "https://shell.azure.com/bash"'
-alias cdneta-georgia="cd $MY_DATA/Private/Documents/Abroad/Vacations/2020-03-Georgia-Neta"
+alias cdneta-georgia="cd $MY_DATA/Private/Documents/Tourism/Abroad/Vacations/2020-03-Georgia-Neta"
+alias cdneta-georgia='cd "/Users/drorlevin/Google Drive/Share - Levin/Vacations/2020-03-Georgia-Neta"'
 alias cdprague="cd $MY_DATA/Private/Documents/Abroad/Vacations/2020-03-Prague"
 alias cdnoa-essen="cd $MY_DATA/Private/Documents/Abroad/Vacations/2020-03-Essen-Noa"
 alias cdfrance="cd $MY_DATA/Private/Documents/Abroad/Vacations/2020-France"
@@ -177,7 +180,8 @@ alias hilan='open "https://fundtech.net.hilan.co.il/"' ; alias hours=hilan
 alias cdmydata='cd $MY_DATA'
 alias cdnoa-poland='cd $MY_DATA/Private/Documents/Abroad/Vacations/2020-Poland'
 alias chrome='open -a "Google Chrome"'
-alias chromehome='open -na "Google Chrome" --args --new-window "mail.google.com" "calendar.google.com" "contacts.google.com" "wunderlist.com" "web.whatsapp.com" "youtube.com" "outlook.office365.com/mail/inbox" "outlook.office365.com/calendar"'
+alias chromehome='open -na "Google Chrome" --args --new-window "mail.google.com" "calendar.google.com" "contacts.google.com" "to-do.microsoft.com/tasks/myday" "web.whatsapp.com" "youtube.com" "outlook.office365.com/mail/inbox" "outlook.office365.com/calendar"'
+alias chromework='open -na "Google Chrome" --args --new-window "outlook.office365.com/mail/inbox" "outlook.office365.com/calendar" "https://teams.microsoft.com/_?tenantId=0b9b90da-3fe1-457a-b340-f1b67e1024fb#"'
 alias vscode='open -a "Visual Studio Code"'
 alias cdyoutube-music='cd $MY_DATA/Entertainment/Music/YouTube-Links'
 alias prague-map='open "https://www.google.com/maps/d/edit?hl=en&hl=en&mid=1Y092p9a93Odug7YJVVwmThldujVvhypa&ll=50.07378100022851%2C14.418728228566692&z=15"'
@@ -190,7 +194,38 @@ alias virtualbox='open -a VirtualBox' ; alias vm=virtualbox
 alias cdvagrant='cd $MY_DATA/Utilities/Tools/Vagrant/Vagrant.git'
 alias cddata='cd /Users/drorlevin/Private/Data'
 alias notes='vi $WORK_DATA/Workspace/notes.txt'
-alias course='open "https://www.udemy.com/course/70533-azure/learn/lecture/15203220"' ; alias open-course=course
+alias course='open "https://youtu.be/2CZVIxRF22c?list=PLaFzfwmPR7_Ifxq-udm66fhReFeGOe2x_"' ; alias open-course=course
 alias cddesktop="cd ~/Desktop"
-alias teams='open -a "Microsoft Teams"'
+alias open-teams='open -a "Microsoft Teams"' ; alias teams=open-teams
 alias cdconfig-files-repo='cd $MY_DATA/Utilities/configuration-files.git'
+alias get-last-cmd='history | tail -n 2 | head -n 1 | sed "s/ [0-9]*  //" | pbcopy'
+append-last-cmd() { history | tail -n 2 | head -n 1 | sed "s/ [0-9]*  //" >> $1 ; tail -n 1 $1 ; } ; alias add-last-command=append-last-command
+alias append-last-cmd-alias='append-last-cmd /Users/drorlevin/.alias'
+alias append-last-cmd-my_alias='append-last-cmd ~/.my_alias'
+alias az-powershell-documentation='open "https://docs.microsoft.com/en-us/powershell/azure/?view=azps-3.5.0&viewFallbackFrom=azps-3.3.0"'
+alias az-cli-documentation='open "https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest"' ; alias az-bash-documentation=az-cli-documentation
+alias jul='open "https://finastra.jul.co.il/"'
+alias 10bis='open "https://www.10bis.co.il"'
+alias יומן='open "$MY_DATA/Private/Documents/misc/יומן.docx"' ; alias huni=יומן
+#alias todo='open "https://to-do.microsoft.com/tasks/myday"'
+alias todo='open -a "Microsoft To Do"'
+alias az-cost-calculator='open "https://azure.microsoft.com/en/pricing/calculator/"' ; alias az-price-calculator=az-cost-calculator ; alias az-calculator=az-cost-calculator
+alias excel='open -a "Microsoft Excel"'
+alias outlook='open -a "Microsoft Outlook"'
+alias open-noa-health-status='open $MY_DATA/Private/Documents/Health/Noa/2019-noa-treatment.docx' ; alias noa-health-status=open-noa-health-status
+alias python-doc='open $MY_DATA/Private/Training/DevOps/HowTo-Documents/Python.docx'
+alias hebcal='open "https://calendar.2net.co.il/"'
+alias az-devops='open "https://dev.azure.com/"'
+alias photos='open -a Photos' ; alias pictures=photos
+alias cdcourse='cd "$MY_DATA/Private/Training/DevOps/Topics/Azure/DevOps/Courses"'
+alias zoom='open -a zoom.us'
+alias teamviewer='open -a TeamViewer'
+alias vlc='open -a VLC'
+alias activity-monitor='open -a "Activity Monitor"' ; alias task-manager=activity-monitor
+alias az-portal-rsg='open "https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups"'
+alias pluralsight='open -a Pluralsight'
+alias cdcourse='cd "/Users/drorlevin/Private/Data/Private/Training/DevOps/Topics/Azure/Compute/Configuring-and-Managing-Microsoft-Azure-Key-Vault/Configuring-and-Managing-Microsoft-Azure-Key-Vault.github"'
+alias chromeprivate='open -na "Google Chrome" --args --new-window "mail.google.com" "calendar.google.com" "contacts.google.com" "to-do.microsoft.com/tasks/myday" "web.whatsapp.com" "youtube.com"'
+alias smartschool='open "https://www.webtop.co.il/v2/default.aspx"' ; alias webtop=smartschool
+alias gpp-devops-dashboard='open "http://192.168.168.66:8080/apex/f?p=102:LOGIN_DESKTOP::::::"'
+alias get-public-key='cat ~/.ssh/id_rsa.pub  | pbcopy'

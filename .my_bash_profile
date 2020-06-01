@@ -23,3 +23,10 @@ export MY_DATA='/Users/drorlevin/Private/Data'
 
 # Configure PATH
 export PATH="$PATH:~/bin"
+
+# Configure the prompt - Good explanation here: https://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html
+PS1="\\[$(tput setaf 2)\\]\w\[$(tput sgr0)\\] $ "
+
+# Silence deprecation warning "The default interactive shell is now zsh"
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
