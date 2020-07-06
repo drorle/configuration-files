@@ -121,8 +121,8 @@ alias noprompt='export PS1="$ "'
 # Misc
 alias vered-vpn='open "https:/secure.purpledrm.com/pulse"'
 alias vered-ssh='ssh root@172.31.160.7'
-#alias open-github-remotes='git remote -v | grep fetch  | awk '\''{print $2}'\'' | sed "s/git@/" | sed "s/.git//" | sed "s/:/\//" | sed "s/github/http:\/\/github/" | xargs open' ; alias github-open-remotes=open-github-remotes
-alias open-github-remotes='git remote -v | grep fetch  | awk '\''{print $2}'\'' | sed "s/git@/" | sed "s/.git//" | sed "s/:/\//" | sed "s/github/http:\/\/github/" | xargs open 2>/dev/null|| git remote -v | grep fetch | awk '\''{print $2}'\'' | xargs open ' ; alias github-open-remotes=open-github-remotes
+#alias open-github-remotes='git remote -v | grep fetch  | awk '\''{print $2}'\'' | sed "s/git@//" | sed "s/.git//" | sed "s/:/\//" | sed "s/github/http:\/\/github/" | xargs open' ; alias github-open-remotes=open-github-remotes
+alias open-github-remotes='git remote -v | grep fetch  | awk '\''{print $2}'\'' | sed "s/git@//" | sed "s/.git//" | sed "s/:/\//" | sed "s/github/http:\/\/github/" | xargs open 2>/dev/null|| git remote -v | grep fetch | awk '\''{print $2}'\'' | xargs open ' ; alias github-open-remotes=open-github-remotes
 alias walldorf-map='open "https:/drive.google.com/open?id=1vwHDjjrd0rv8iT4cpG1UpTBymIDcDqRV&usp=sharing"'
 alias housexls='open $MY_DATA/Documents/Household/House/House.xlsx'
 alias cv='open "$MY_DATA/Documents/Work/Job Search/Dror/2019-04-Dror-Job-Search/2019-04_Resume-Dror-Levin-Training.docx"'
@@ -198,8 +198,8 @@ alias course='open "https:/youtu.be/2CZVIxRF22c?list=PLaFzfwmPR7_Ifxq-udm66fhReF
 alias cddesktop="cd ~/Desktop"
 alias open-teams='open -a "Microsoft Teams"' ; alias teams=open-teams
 alias cdconfig-files-repo='cd $MY_DATA/Utilities/configuration-files.git'
-alias get-last-cmd='history | tail -n 2 | head -n 1 | sed "s/ [0-9]*  /" | pbcopy'
-append-last-cmd() { history | tail -n 2 | head -n 1 | sed "s/ [0-9]*  /" >> $1 ; tail -n 1 $1 ; } ; alias add-last-command=append-last-command
+alias get-last-cmd='history | tail -n 2 | head -n 1 | sed "s/ [0-9]*  //" | pbcopy'
+append-last-cmd() { history | tail -n 2 | head -n 1 | sed "s/ [0-9]*  //" >> $1 ; tail -n 1 $1 ; } ; alias add-last-command=append-last-command
 alias append-last-cmd-alias='append-last-cmd /Users/drorlevin/.alias'
 alias append-last-cmd-my_alias='append-last-cmd ~/.my_alias'
 alias az-powershell-documentation='open "https:/docs.microsoft.com/en-us/powershell/azure/?view=azps-3.5.0&viewFallbackFrom=azps-3.3.0"'
@@ -231,4 +231,11 @@ alias get-public-key='cat ~/.ssh/id_rsa.pub  | pbcopy'
 alias youtube2mp3='open "https:/ytmp3.cc/en13/"'
 alias todo-note='vi /tmp/999 ; cat /tmp/999 | pbcopy ; rm -f /tmp/999'
 alias chromehome='open -na "Google Chrome" --args --new-window "outlook.office365.com/mail/inbox" "outlook.office365.com/calendar" "https:/teams.microsoft.com/_?tenantId=0b9b90da-3fe1-457a-b340-f1b67e1024fb#" "mail.google.com" "calendar.google.com" "contacts.google.com" "to-do.microsoft.com/tasks/myday" "web.whatsapp.com" "youtube.com"'
- alias microsoft-account='open "https:/account.microsoft.com/?ref=MeControl&refd=www.microsoft.com"'
+alias microsoft-account='open "https:/account.microsoft.com/?ref=MeControl&refd=www.microsoft.com"'
+
+ alias insurance='open "$MY_DATA/Documents/Money/Insurance/Insurance.docx"'
+ alias az-devops-drorle='open "https:/dev.azure.com/drorle/"'
+ alias visual-studio='open -a "Visual Studio"'
+ alias cd-my-azure-projects='cd $MY_DATA/Education/Dror/DevOps/Topics/Azure/Projects'
+ alias az-quickstart-templates='open "https://azure.microsoft.com/en-us/resources/templates/"'
+ alias draw-diagrams='open "http://draw.io/"'
