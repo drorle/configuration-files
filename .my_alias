@@ -186,7 +186,7 @@ alias vscode='open -a "Visual Studio Code"'
 alias cdyoutube-music='cd $MY_DATA/Entertainment/Music/YouTube-Links'
 alias prague-map='open "https:/www.google.com/maps/d/edit?hl=en&hl=en&mid=1Y092p9a93Odug7YJVVwmThldujVvhypa&ll=50.07378100022851%2C14.418728228566692&z=15"'
 alias cdWdata='cd "$WORK_DATA"'
-alias az-portal='open "https:/portal.azure.com/"'
+alias az-portal='dh "https:/portal.azure.com/"' ; alias azp=az-portal
 alias az-shell='open "https:/shell.azure.com/"'
 alias rdp='open -a "Microsoft Remote Desktop"'
 alias notepad='open -a Notes'
@@ -233,9 +233,29 @@ alias todo-note='vi /tmp/999 ; cat /tmp/999 | pbcopy ; rm -f /tmp/999'
 alias chromehome='open -na "Google Chrome" --args --new-window "outlook.office365.com/mail/inbox" "outlook.office365.com/calendar" "https:/teams.microsoft.com/_?tenantId=0b9b90da-3fe1-457a-b340-f1b67e1024fb#" "mail.google.com" "calendar.google.com" "contacts.google.com" "to-do.microsoft.com/tasks/myday" "web.whatsapp.com" "youtube.com"'
 alias microsoft-account='open "https:/account.microsoft.com/?ref=MeControl&refd=www.microsoft.com"'
 
- alias insurance='open "$MY_DATA/Documents/Money/Insurance/Insurance.docx"'
- alias az-devops-drorle='open "https:/dev.azure.com/drorle/"'
- alias visual-studio='open -a "Visual Studio"'
- alias cd-my-azure-projects='cd $MY_DATA/Education/Dror/DevOps/Topics/Azure/Projects'
- alias az-quickstart-templates='open "https://azure.microsoft.com/en-us/resources/templates/"'
- alias draw-diagrams='open "http://draw.io/"'
+alias insurance='open "$MY_DATA/Documents/Money/Insurance/Insurance.docx"'
+alias az-devops-drorle='open "https:/dev.azure.com/drorle/"'
+alias visual-studio='open -a "Visual Studio"'
+alias cd-my-azure-projects='cd $MY_DATA/Education/Dror/DevOps/Topics/Azure/Projects'
+alias az-quickstart-templates='open "https://azure.microsoft.com/en-us/resources/templates/"'
+alias draw-diagrams='open "http://draw.io/"'
+alias spotify='open -a Spotify'
+alias default-chrome='open -na "Google Chrome" --args --profile-directory="Default"' ; alias df-chrome=default-chrome ; alias df=default-chrome
+
+alias whiteboard='default-chrome "https://whiteboard.microsoft.com/"'
+alias tasker='open -a "Activity Monitor"' ; alias cpu-monitor=tasker
+alias postman='open -a "Postman"'
+alias cdabroad='cd $MY_DATA/Documents/Tourism/Abroad'
+alias cdlisbon='cd $MY_DATA/Documents/Tourism/Abroad/2020-Parents-Portugal-Lisbon/'
+alias cdrenovation='cd "/Users/drorlevin/Google Drive/Share - Levin/Renovation"'
+find-vm() { cd ~/bin ; pwsh -command "& { . ./find-vm-info.ps1; findvminfo $1 } " ; }
+alias az-find-vm=find-vm
+alias az-storage-explorer='open -a "Microsoft Azure Storage Explorer"'
+alias az-status-dashboard='default-chrome "https://status.azure.com/en-us/status"'
+alias az-service-issues='open "https://portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues"'
+alias az-devops-status-dashboard='open "https://status.dev.azure.com/"'
+alias 138-07-adf='dh-chrome "https://adf.azure.com/home?factory=%2Fsubscriptions%2Ff4c6caf2-122a-491f-928a-ffa197a45fcd%2FresourceGroups%2FAZR-C21-DV-138-07%2Fproviders%2FMicrosoft.DataFactory%2Ffactories%2Fp21d13807544001"'
+alias cdprojects='cd $WORK_DATA/Projects'
+alias instagram-photo-download='open "https://www.dinsta.com/photos/"'
+# Get a user's objectId in Azure
+get-objectid-for-user() { az ad user list --filter "startswith(userPrincipalName, '$1')" | grep -E -e userPrincipalName -e objectId | cut -d\" -f4 ; }
